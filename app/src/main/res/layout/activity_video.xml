@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- 输入区域和按钮 -->
+    <EditText
+        android:id="@+id/et_ak"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="输入 AppKey (AK)"
+        android:inputType="text"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/et_sk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="输入 AppSecret (SK)"
+        android:inputType="textPassword"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/et_qrcode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="输入摄像头 QRCode/ID"
+        android:inputType="text"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/et_mac"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="输入摄像头 MAC (XX-XX-XX..)"
+        android:inputType="textCapCharacters"
+        android:text="" />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="返回" />
+
+    <!-- 使用 Flow 辅助布局排列输入框和按钮 -->
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow_inputs"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="et_ak,et_sk,et_qrcode,et_mac,btn_back"
+        app:flow_verticalGap="8dp"
+        app:flow_wrapMode="chain"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- 视频预览容器 -->
+    <FrameLayout
+        android:id="@+id/preview_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="#333333"
+        app:layout_constraintTop_toBottomOf="@id/flow_inputs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintBottom_toTopOf="@+id/ptz_container">
+
+        <com.example.myapplication.FaceOverlayView
+            android:id="@+id/faceOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            tools:background="#50FF0000" />
+
+    </FrameLayout>
+
+    <!-- 云台控制区域，采用方向盘式布局 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ptz_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/preview_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_status">
+
+        <!-- 上按钮，居中放置 -->
+        <Button
+            android:id="@+id/btn_ptz_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="↑"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- 左按钮 -->
+        <Button
+            android:id="@+id/btn_ptz_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="←"
+            app:layout_constraintTop_toBottomOf="@id/btn_ptz_up"
+            app:layout_constraintBottom_toTopOf="@id/btn_ptz_down"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_ptz_right"
+            app:layout_constraintHorizontal_chainStyle="spread" />
+
+        <!-- 右按钮 -->
+        <Button
+            android:id="@+id/btn_ptz_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="→"
+            app:layout_constraintTop_toBottomOf="@id/btn_ptz_up"
+            app:layout_constraintBottom_toTopOf="@id/btn_ptz_down"
+            app:layout_constraintStart_toEndOf="@id/btn_ptz_left"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- 下按钮，居中放置 -->
+        <Button
+            android:id="@+id/btn_ptz_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="↓"
+            app:layout_constraintTop_toBottomOf="@id/btn_ptz_left"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- 状态显示文本 -->
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="状态: 空闲"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/ptz_container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

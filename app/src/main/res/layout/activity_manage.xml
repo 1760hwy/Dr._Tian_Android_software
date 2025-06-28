@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8E8E8">
+
+    <!-- 主内容区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 顶部内容区域（可选） -->
+        <!-- 这里可以添加其他内容，例如标题或按钮 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="640dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <!-- 您可以在这里添加其他视图 -->
+
+            <TextView
+                android:id="@+id/tvLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="基于AI智能体的智慧农业软件"
+                android:textSize="20sp"
+                android:textColor="#000"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="horizontal" >
+                <LinearLayout
+                    android:id="@+id/sensingLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/sensingpage"
+                        android:layout_width="50dp"
+                        android:layout_height="82dp"
+                        android:scaleType="center"
+                        android:src="@drawable/sensing" />
+                    <TextView
+                        android:id="@+id/sensingtext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="北斗感知"
+                        android:textSize="18dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/controlLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <ImageView
+                        android:id="@+id/controlpage"
+                        android:layout_width="50dp"
+                        android:layout_height="82dp"
+                        android:scaleType="center"
+                        android:src="@drawable/controlpage" />
+                    <TextView
+                        android:id="@+id/controltext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="控制设备"
+                        android:textSize="18dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/VideoLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/videopage"
+                        android:layout_width="50dp"
+                        android:layout_height="82dp"
+                        android:scaleType="center"
+                        android:src="@drawable/video" />
+                    <TextView
+                        android:id="@+id/videotext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="机器视觉"
+                        android:textSize="18dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/driverLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/drivepage"
+                        android:layout_width="50dp"
+                        android:layout_height="82dp"
+                        android:scaleType="center"
+                        android:src="@drawable/driver" />
+                    <TextView
+                        android:id="@+id/drivetext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="自动巡检"
+                        android:textSize="18dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+             <!--天气预报,下面这个视图-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="2">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="未来两天天气预报"
+                    android:textColor="#000"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/weatherIcon0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/sum" />
+                        <TextView
+                            android:id="@+id/zuigaowen0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="最高温:20℃" />
+                        <TextView
+                            android:id="@+id/zuidiwen0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="最低温:16℃" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/weatherIcon1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/cloud" />
+                        <TextView
+                            android:id="@+id/zuigaowen1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="最高温:20℃" />
+                        <TextView
+                            android:id="@+id/zuidiwen1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="最低温:16℃" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="800dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:orientation="horizontal">
+
+                <!-- 左边区域，放置温湿度和光照传感器数据 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!-- 温湿度传感器卡片 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/border_white_gray"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/wendu" />
+
+                        <TextView
+                            android:id="@+id/wendu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            android:text="温度:32.9℃"
+                            android:textSize="16sp" />
+
+
+                    </LinearLayout>
+
+                    <!-- 光照传感器卡片 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/border_white_gray"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/guangzhao" />
+
+                        <TextView
+                            android:id="@+id/guangzhao"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            android:text="光照: 17495lux"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- 右边区域，放置土壤传感器及其他传感器数据 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!-- 土壤传感器卡片 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:background="@drawable/border_white_gray"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/shidu" />
+
+                        <TextView
+                            android:id="@+id/shidu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            android:text="湿度: 78.3%"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <!-- 其他传感器卡片（比如气压、CO2等） -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/border_white_gray"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/turang" />
+
+                        <TextView
+                            android:id="@+id/turang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="8dp"
+                            android:text="土壤肥力等级:无"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                <com.amap.api.maps2d.MapView
+                    android:id="@+id/mapView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <!-- 语音播报设置模块 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:background="@drawable/border_white_gray"
+                android:layout_margin="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AI语音播报设置"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="AI开启语音播报" />
+
+                    <Switch
+                        android:id="@+id/switch_voicenoise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="音量" />
+
+                    <SeekBar
+                        android:id="@+id/seekbar_volume"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_volume_percent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="50%" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <!-- 底部导航栏 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:background="#FFFFFF"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- 第一个导航项 -->
+            <LinearLayout
+                android:id="@+id/manager"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/main_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/manage"/>
+                <TextView
+                    android:id="@+id/manager_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="管理平台"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+
+            <!-- 第二个导航项 -->
+            <LinearLayout
+                android:id="@+id/control"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/main_icon2"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/control"/>
+                <TextView
+                    android:id="@+id/control_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="设备控制"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+
+            <!-- 第三个导航项 -->
+            <LinearLayout
+                android:id="@+id/analysis"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/main_icon3"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/analysis" />
+                <TextView
+                    android:id="@+id/analysis_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="数据分析"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+
+            <!-- 第四个导航项 -->
+            <LinearLayout
+                android:id="@+id/myname"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/main_icon4"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/my"/>
+                <TextView
+                    android:id="@+id/myname_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 侧边菜单 -->
+    <LinearLayout
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#333333"
+        android:gravity="top"
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+        <ListView
+            android:id="@+id/menu_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFF"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="1dp"/>
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
