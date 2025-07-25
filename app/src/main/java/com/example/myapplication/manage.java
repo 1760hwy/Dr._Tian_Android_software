@@ -97,10 +97,10 @@ public class manage extends AppCompatActivity {
     private Random random;
     private DecimalFormat decimalFormat; // 用于格式化带一位小数的数字
     // 随机值范围和更新间隔常量
-    private final double MIN_TEMPERATURE = 26.0;
-    private final double MAX_TEMPERATURE = 29.0;
-    private final double MIN_HUMIDITY = 75.0;
-    private final double MAX_HUMIDITY = 77.0;
+    private final double MIN_TEMPERATURE = 32.0;
+    private final double MAX_TEMPERATURE = 38.0;
+    private final double MIN_HUMIDITY = 90.0;
+    private final double MAX_HUMIDITY = 99.0;
     private final int MIN_LIGHT = 15000;
     private final int MAX_LIGHT = 23000;
     // 新增：用于 Analysis Activity 读取的纯数值 static 变量
